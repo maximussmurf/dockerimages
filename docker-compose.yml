@@ -15,18 +15,6 @@ services:
 #    environment:
 #      - NETWORK_ACCESS=internal
 # This environment variable can be placed on any container to restrict access to internal network only
-  
-  portainer:
-    image: portainer/portainer-ce
-    container_name: portainer
-    command: -H unix:///var/run/docker.sock
-    restart: always
-    ports:
-      - 9000:9000
-      - 8000:8000
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
 
   ouroboros:
     container_name: ouroboros
@@ -213,6 +201,3 @@ services:
     environment:
       - TZ=Australia/Melbourne
     network_mode: "host"
-
-volumes:
-  portainer_data:
